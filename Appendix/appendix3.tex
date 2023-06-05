@@ -1,0 +1,86 @@
+
+\section{Project Setup Guide}
+\vspace{15pt}
+
+\tocless\subsection{Setup Guide to run Blockchain and Gateway Application}
+\vspace{15pt}
+\textbf{Prerequisite:}
+
+\begin{itemize}[noitemsep]
+    \item Linux OS
+    \item Docker compose
+    \item Jq
+    \item Git
+    \item cURL
+    \item Docker
+    \item JQ
+    \item Node (version 18 and above)
+\end{itemize}
+
+\textbf{Clone the repo from github.}
+\begin{verbatim}
+    git clone git@github.com:nepal80m/pochita.git
+\end{verbatim}
+
+\textbf{Install the required binaries and configurations for the blockchain network.}
+\begin{verbatim}
+    curl -sSLO
+    https://raw.githubusercontent.com/hyperledger/fabric/main/
+        scripts/install-fabric.sh 
+    chmod +x install-fabric.sh 
+    ./install-fabric.sh d b
+    rm install-fabric.sh
+\end{verbatim}
+\textbf{Command to Install the required packages for rest api server:}
+\begin{verbatim}
+    cd restapi/
+    npm install
+    cd ..
+\end{verbatim}
+
+\textbf{Command to start the blockchain network:}
+\begin{verbatim}
+    cd scripts/
+    ./wakeup.sh
+    cd ..
+\end{verbatim}
+
+\textbf{Command to run the rest api server:}
+\begin{verbatim}
+    cd restapi/
+    npm run dev
+    cd .. 
+\end{verbatim}
+
+
+\tocless\subsection{Setup Guide to run Parichaya Backend Server} 
+\vspace{15pt}
+\textbf{Clone the repo from github.}
+\begin{verbatim}
+    git clone git@github.com:nepal80m/dr-octavius.git
+\end{verbatim}
+\textbf{To start the docker container, run the following command.}
+\begin{verbatim}
+    docker compose up
+\end{verbatim}
+
+\tocless\subsection{Setup Guide to run Parichaya App} 
+\vspace{15pt}
+\textbf{Clone the repo from github.}
+\begin{verbatim}
+    git clone git@github.com:Nischal-Shakya/project-vegapunk.git
+\end{verbatim}
+
+\textbf{Command to get all the dependencies:}
+\begin{verbatim}
+    flutter pub get
+\end{verbatim}
+
+\textbf{Command to build the flutter app in the connected device:}
+\begin{verbatim}
+    flutter run
+\end{verbatim}
+
+ \newpage
+
+

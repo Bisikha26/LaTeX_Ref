@@ -1,0 +1,135 @@
+\include{commands}
+
+\begin{document}
+\include{0ACover/0cover}
+\include{0ACover/1title}
+\pagenumbering{Roman}
+\include{0ACover/2copyright}
+\include{0ACover/3declaration}
+\include{0ACover/4recommendation}
+\include{0ACover/5departmentAcceptance}
+
+
+\include{0ACover/6acknowledgement}
+
+\include{0HAbstract/abstract}
+
+%=================TOC=========================================================================
+
+\cftsetindents{section}{1.5em}{2.1em}
+\cftsetindents{subsection}{3.6em}{3.1em}
+
+\chapter*{\vspace{0.4cm}\centerline{TABLE OF CONTENTS}}
+
+\addcontentsline{toc}{chapter}{TABLE OF CONTENTS}
+\vspace{-1cm}
+\def\contentsname{\empty}
+\tableofcontents
+\clearpage
+
+
+
+
+\chapter*{\vspace{0.4cm}\centerline{LIST OF FIGURES}}
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\def\listfigurename{\empty}
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+\vspace{-1cm}
+\listoffigures
+\clearpage
+
+% \chapter*{\centerline{LIST OF TABLES}}
+% \addcontentsline{toc}{chapter}{LIST OF TABLES}
+% \def\listtablename{\empty}
+% \addtocontents{lot}{\protect\noaddvspace}
+% \listoftables
+% \clearpage
+
+
+
+
+\include{0IAbbreviations/abbreviations}
+
+
+
+\newpage
+% =============================================================================
+
+
+\pagenumbering{arabic}
+
+%=====================Report Body=============================================
+
+
+\include{1Introduction/introduction}
+\include{2Literaturereview/literaturereview}
+\include{3RequirementAnalysis/requirementanalysis}
+% \include{3Feasibility/feasibilitystudy}
+%\include{4Theoriticalbackground/theoriticalbackground}
+\include{5Methodology/methodology}
+\include{6Results/results}
+% \include{7DiscussionAndAnalysis/discussionAndAnalysis}
+\include{8Conclusion/conclusion}
+% \include{6ProjectSchedule/schedule}
+
+%\newpage
+
+%========================References setup=========================================================
+\newpage
+\bibliographystyle{ieeetr}
+\bibliography{References/references}
+
+\addcontentsline{toc}{chapter}{REFERENCES}
+
+%=============================================================================================
+
+% ================================Appendices Setup================================================
+
+% \appendix
+% \chapter{Docker}
+% \section{Appendix A.1}        % Do not show in table of content.
+% \subsection{Appendix A.1.1}   % Do not show in table of content.
+% \chapter{Appendix B}
+% \section{Appendix B.1}        % Do not show in table of content.
+% \section{Appendix B.2}  
+
+\begin{appendices}
+
+% \addtocontents{toc}{\textbf{APPENDICES}}
+
+\chapter*{APPENDICES}
+\addcontentsline{toc}{chapter}{APPENDICES}
+
+% \renewcommand\thefigure{\thechapter.\arabic{figure}}
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+\renewcommand\thesection{\Alph{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+
+\titleformat{\section}{
+\normalfont\fontsize{12}{15}\bfseries
+}{APPENDIX \thesection:}{1em}{}
+
+
+\titlespacing{\section}{0pt}{-0.5in}{0.5em}
+
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+
+\input{Appendix/appendix1.tex}
+\input{Appendix/appendix2.tex}
+\input{Appendix/appendix3.tex}
+
+% \input{Appendix/appendix4.tex}
+\end{appendices}
+
+
+
+
+
+
+
+%=========================================================================
+\end{document}
